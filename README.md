@@ -8,8 +8,6 @@ code ที่เขียนออกมาต้องคำนึกด้ว
 
 web application ที่ทำออกมาต้องง่ายต่อผู้ใช้ง่าย ออกแบบประสบการณ์การใช้งานที่ดีให้กับผู้ที่มาใช้ user experience (UX)
 
-<hr>
-
 ## แบบทดสอบ "E-Commerce web application"
 
 สร้าง web application สำหรับแสดงรายการสินค้าและเลือกสินค้าเข้าตะกร้า
@@ -57,8 +55,6 @@ Response Status 200:
 
 การสร้าง Web Application ใช้ vue 2 typescript ในการสร้างขึ้นมา เราจะดูการเขียน service เพื่อเชื่อมต่อ api สำหรับดึงข้อมูบ การจัดการข้อมูลใน Web Application ที่เป็นระเบียบการอ่าน (ควรใช้ vuex ที่ติดตั้งไปให้ใน project) และการสร้าง,ใช้ component ที่นำมาใช้ใหม่ได้เพื่อไม่ให้ code มีการซ้ำซ้อนกัน
 
-<hr>
-
 ## วิธีการ Run Service API
 
 ```bash
@@ -74,8 +70,6 @@ node index.js
 ```
 
 ดูข้อมูล json ได้ที่ http://localhost:3000/
-
-<hr>
 
 ## วิธีการ Run Wab Appication
 
