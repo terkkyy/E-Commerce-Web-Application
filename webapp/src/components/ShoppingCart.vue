@@ -46,15 +46,18 @@ interface CartItem {
 export default defineComponent({
   name: "ShoppingCart",
   computed: {
+    //ดึงรายการสินค้าทั้งหมดในตะกร้าจาก Vuex Store
     cartItems(): CartItem[] {
       return this.$store.getters["ShoppingCart/cartItems"];
     },
+    //คำนวณจำนวนสินค้าทั้งหมดในตะกร้า
     totalQuantity(): number {
       return this.cartItems.reduce(
         (total: number, item: CartItem) => total + item.quantity,
         0
       );
     },
+    //คำนวณยอดรวมทั้งหมด (ราคาสินค้าทั้งหมด)
     grandTotal(): number {
       return this.cartItems.reduce(
         (total: number, item: CartItem) => total + item.price * item.quantity,
@@ -63,13 +66,16 @@ export default defineComponent({
     },
   },
   methods: {
+    //คำนวณราคารวมของสินค้าชิ้นเดียว (ราคา x จำนวน)
     itemTotal(item: CartItem): number {
       return item.price * item.quantity;
     },
+    //เพิ่มสินค้าในตะกร้า
     addToCart(product: CartItem) {
       console.log("Adding product with ID:", product.id);
       this.$store.dispatch("ShoppingCart/addToCart", product);
     },
+    //ลบสินค้าในตะกร้า
     removeFromCart(productId: number) {
       console.log("Removing product with ID:", productId);
       this.$store.dispatch("ShoppingCart/removeFromCart", productId);

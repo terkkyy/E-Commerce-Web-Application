@@ -71,6 +71,7 @@ export default defineComponent({
     };
   },
   computed: {
+    // คำนวณจำนวนหน้าทั้งหมดที่แบ่ง pageination
     totalPages(): number {
       return Math.ceil(this.products.length / this.itemsPerPage);
     },
@@ -86,12 +87,14 @@ export default defineComponent({
     },
   },
   async created() {
+    // ดึงข้อมูลสินค้าจาก API เมื่อ Component ถูกสร้าง
     try {
       this.products = await fetchProducts();
     } catch (error) {
       console.error("Failed to fetch products:", error);
     }
   },
+  // ใช้ Vuex Action สำหรับเพิ่มสินค้าในตะกร้า
   methods: {
     ...mapActions("ShoppingCart", {
       addToCart: "addToCart",

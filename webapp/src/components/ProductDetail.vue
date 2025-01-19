@@ -47,9 +47,10 @@ export default defineComponent({
     };
   },
   async created() {
+  // ดึงข้อมูลสินค้าจาก API
     try {
       const products = await fetchProducts();
-      const id = parseInt(this.$route.params.id, 10);
+      const id = parseInt(this.$route.params.id, 10); // อ่าน ID จาก URL
       this.product = products.find((p: Product) => p.id === id) || null;
 
       if (!this.product) {

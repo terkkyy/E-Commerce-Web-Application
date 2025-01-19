@@ -19,6 +19,7 @@ export default {
     items: [] as CartItem[],
   },
   mutations: {
+    // Mutations: เพิ่มสินค้าในตะกร้าหรือเพิ่มจำนวนสินค้า
     ADD_TO_CART(state: any, product: Product) {
       const existingItem = state.items.find(
         (item: CartItem) => item.id === product.id
@@ -30,6 +31,7 @@ export default {
       }
       console.log("Current cart items after addition:", state.items);
     },
+    // Mutations: ลบสินค้าหรือลดจำนวนสินค้าในตะกร้า
     REMOVE_FROM_CART(state: any, productId: number) {
       const existingItemIndex = state.items.findIndex(
         (item: CartItem) => item.id === productId
@@ -46,6 +48,7 @@ export default {
     },
   },
   actions: {
+    // Actions: เรียก Mutations เพื่อเปลี่ยนแปลงข้อมูล
     addToCart({ commit }: { commit: Commit }, product: Product) {
       console.log("Dispatching addToCart with product:", product);
       commit("ADD_TO_CART", product);
@@ -56,6 +59,8 @@ export default {
     },
   },
   getters: {
+    // Getters: ดึงข้อมูลจาก State 
+    // คำนวณจำนวนสินค้ารวมทั้งหมด
     cartItems: (state: any) => state.items,
     totalItems: (state: any) =>
       state.items.reduce(
