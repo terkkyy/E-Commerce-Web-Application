@@ -59,7 +59,7 @@ export default {
     },
   },
   getters: {
-    // Getters: ดึงข้อมูลจาก State 
+    // Getters: ดึงข้อมูลจาก State
     // คำนวณจำนวนสินค้ารวมทั้งหมด
     cartItems: (state: any) => state.items,
     totalItems: (state: any) =>
